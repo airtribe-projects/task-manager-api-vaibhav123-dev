@@ -4,91 +4,121 @@
       "id": 1,
       "title": "Set up environment",
       "description": "Install Node.js, npm, and git",
-      "completed": true
+      "completed": true,
+      "date": "2025-08-01T10:00:00Z",
+      "priority": "high"
     },
     {
       "id": 2,
       "title": "Create a new project",
       "description": "Create a new project using the Express application generator",
-      "completed": true
+      "completed": true,
+      "date": "2025-08-01T11:00:00Z",
+      "priority": "high"
     },
     {
       "id": 3,
       "title": "Install nodemon",
       "description": "Install nodemon as a development dependency",
-      "completed": true
+      "completed": true,
+      "date": "2025-08-01T12:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 4,
       "title": "Install Express",
       "description": "Install Express",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T13:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 5,
       "title": "Install Mongoose",
       "description": "Install Mongoose",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T14:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 6,
       "title": "Install Morgan",
       "description": "Install Morgan",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T15:00:00Z",
+      "priority": "low"
     },
     {
       "id": 7,
       "title": "Install body-parser",
       "description": "Install body-parser",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T16:00:00Z",
+      "priority": "low"
     },
     {
       "id": 8,
       "title": "Install cors",
       "description": "Install cors",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T17:00:00Z",
+      "priority": "low"
     },
     {
       "id": 9,
       "title": "Install passport",
       "description": "Install passport",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T18:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 10,
       "title": "Install passport-local",
       "description": "Install passport-local",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T19:00:00Z",
+      "priority": "low"
     },
     {
       "id": 11,
       "title": "Install passport-local-mongoose",
       "description": "Install passport-local-mongoose",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T20:00:00Z",
+      "priority": "low"
     },
     {
       "id": 12,
       "title": "Install express-session",
       "description": "Install express-session",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T21:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 13,
       "title": "Install connect-mongo",
       "description": "Install connect-mongo",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T22:00:00Z",
+      "priority": "low"
     },
     {
       "id": 14,
       "title": "Install dotenv",
       "description": "Install dotenv",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-01T23:00:00Z",
+      "priority": "medium"
     },
     {
       "id": 15,
       "title": "Install jsonwebtoken",
       "description": "Install jsonwebtoken",
-      "completed": false
+      "completed": false,
+      "date": "2025-08-02T00:00:00Z",
+      "priority": "high"
     }
   ]
 }
