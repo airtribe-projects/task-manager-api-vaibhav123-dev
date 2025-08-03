@@ -1,11 +1,10 @@
-
-# 📝 Task API
+# 📝 Task Manager API
 
 A simple **RESTful Task Management API** built using **Node.js** and **Express**. This API allows users to create, read, update, and delete tasks. Tasks are stored in memory using a JSON file (`task.json`).
 
 ---
 
-##  Overview
+## Overview
 
 The Task API provides endpoints to:
 
@@ -28,22 +27,21 @@ npm install
 3. Create a `task.json` file in the root folder with initial tasks:
 
 {
-  "tasks": [
-    {
-      "id": 1,
-      "title": "Set up environment",
-      "description": "Install Node.js, npm, and git",
-      "completed": true
-    }
-  ]
+"tasks": [
+{
+"id": 1,
+"title": "Set up environment",
+"description": "Install Node.js, npm, and git",
+"completed": true
+}
+]
 }
 
 4. Start the server:
 
 node app.js
 
-Server runs at: [http://localhost:3000]
----
+## Server runs at: [http://localhost:3000]
 
 ## 📬 API Endpoints
 
@@ -97,7 +95,6 @@ node test.js
 
 - This project uses in-memory storage. All data is lost when the server restarts.
 - Consider integrating a database like MongoDB or PostgreSQL for production use.
-
 
 ## 🙋‍♂️ Author
 
