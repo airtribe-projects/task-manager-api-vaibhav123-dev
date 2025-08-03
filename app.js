@@ -1,5 +1,7 @@
 const express = require("express");
 const { tasks } = require("./task.json");
+const { logger } = require("./utils/logger.js");
+
 const app = express();
 const port = 3000;
 
@@ -8,20 +10,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Implement GET /tasks: Retrieve all tasks.
 app.get("/tasks", (req, res) => {
-  const query = req.query;
-  let result = [];
+  const { completed } = req.query;
 
-  if (query.completed) {
-    result = tasks.filter(
-      (task) => task.completed === (query.completed === "true")
-    );
-  } else {
-    result = tasks;
-  }
+  const result = tasks
+    .filter((task) => {
+      if (completed === undefined) return true;
+      return task.completed === (completed === "true");
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  result.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  res.status(200).send(result); // ✅ Send raw array as expected by tests
+  res.status(200).send(result);
 });
 
 // Implement GET /tasks/priority/:level: Retrieve tasks by priority level.
@@ -46,7 +44,13 @@ app.get("/tasks/priority/:level", (req, res) => {
 // Implement GET /tasks/:id: Retrieve a specific task by its ID.
 app.get("/tasks/:id", (req, res) => {
   const { id } = req.params;
-  const task = tasks.find((task) => task.id === Number(id));
+  const parsedId = Number(id);
+
+  if (isNaN(parsedId)) {
+    return res.status(400).json({ message: "Invalid task ID format" });
+  }
+
+  const task = tasks.find((task) => task.id === parsedId);
   if (!task) {
     return res.status(404).send({ message: "Task not found" });
   }
@@ -65,7 +69,9 @@ app.post("/tasks", (req, res) => {
   ) {
     return res.status(400).send({ message: "Invalid Payload" });
   }
-  const newTask = { id: tasks.length + 1, ...payload };
+  const maxId =
+    tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) : 0;
+  const newTask = { id: maxId + 1, ...payload };
   tasks.push(newTask);
   res.status(201).send({ message: "Task created succesfully", task: newTask });
 });
@@ -107,9 +113,10 @@ app.delete("/tasks/:id", (req, res) => {
 
 app.listen(port, (err) => {
   if (err) {
-    return console.log("Something bad happened", err);
+    logger.error("Something bad happened", err);
+    process.exit(1);
   }
-  console.log(`Server is listening on ${port}`);
+  logger.info(`🚀 Server is listening on http://localhost:${port}`);
 });
 
 module.exports = app;
